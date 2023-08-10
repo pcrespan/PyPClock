@@ -3,22 +3,24 @@ import time
 class Clock:
 
     @staticmethod
-    def start(self, minutes, total):
-        seconds = 60
-        first_minute = True
+    def start(minutes):
+            first_minute = True
+            i = minutes
+            j = 60
 
-        for i in range(minutes, 0, -1):
-            for j in range (seconds, 0, -1):
-                if first_minute:
-                    seconds = 0
-                    self.print_timer(i, j)
-                    time.sleep(1000)
-                    seconds = 60
-                    first_minute = False
-                else:
-                    self.print_timer(i, j)
-                    time.sleep(1000)
-
+            while i >= 0:
+                while j >= 0:
+                    if first_minute:
+                        j = 0
+                        Clock.print_timer(i, j)
+                        i -= 1
+                        j = 60
+                        first_minute = False
+                    else:
+                        Clock.print_timer(i, j)
+                    j -= 1
+                i -= 1
+                j = 59
 
     @staticmethod
     def print_timer(minutes, seconds):
