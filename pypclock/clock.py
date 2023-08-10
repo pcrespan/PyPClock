@@ -22,6 +22,7 @@ class Clock:
                 i -= 1
                 j = 59
 
+
     @staticmethod
     def print_timer(minutes, seconds):
         print("{}:{}".format(minutes, seconds))
