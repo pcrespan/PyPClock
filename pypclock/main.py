@@ -1,14 +1,11 @@
 import sys
+import helpers
 from clock import Clock
 
 
 def main():
-    arguments = sys.argv[1:]
-    minutes = int(arguments[0])
-    break_duration = arguments[1]
-    total = arguments[2]
-
-    Clock.start(minutes)
+    args = helpers.arg_checker()
+    Clock.start(args.minutes[0])
         
 def print_timer(minutes, seconds):
         print("{}:{}".format(minutes, seconds))
