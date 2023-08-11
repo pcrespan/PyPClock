@@ -13,11 +13,13 @@ class Clock:
                     if first_minute:
                         j = 0
                         Clock.print_timer(i, j)
+                        time.sleep(1)
                         i -= 1
                         j = 60
                         first_minute = False
                     else:
                         Clock.print_timer(i, j)
+                        time.sleep(1)
                     j -= 1
                 i -= 1
                 j = 59
