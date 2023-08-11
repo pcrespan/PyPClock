@@ -1,14 +1,17 @@
-import sys
 import helpers
+import curses
 from clock import Clock
 
 
-def main():
-    args = helpers.arg_checker()
-    Clock.start(args.minutes[0])
-        
-def print_timer(minutes, seconds):
-        print("{}:{}".format(minutes, seconds))
+# Curses setup
+screen = curses.initscr()
+curses.curs_set(0)
 
-if __name__ == "__main__":
-    main()
+def main(screen):
+    screen.clear()
+    screen.refresh()
+
+    args = helpers.arg_checker()
+    Clock.start(args.minutes[0], screen)
+        
+curses.wrapper(main)
