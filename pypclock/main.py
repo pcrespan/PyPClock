@@ -3,6 +3,7 @@ import curses
 from clock import Clock
 
 
+
 # Curses setup
 screen = curses.initscr()
 curses.curs_set(0)
