@@ -19,6 +19,17 @@ def main(screen):
     #screen.refresh()
     win = interface.Interface.get_clock_window()
     win.clear()
-    Clock.start(args.minutes[0], args.sessions[0], win)
+    
+    minutes = args.minutes[0]
+    break_duration = args.break_duration[0]
+    total_sessions = args.sessions[0]
+    current_session = 1
+
+    while current_session <= total_sessions:
+        Clock.start(minutes, win)
+        if current_session != total_sessions:
+            Clock.break_time(break_duration, win)
+        current_session += 1
+
         
 curses.wrapper(main)
