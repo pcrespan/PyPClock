@@ -15,13 +15,11 @@ class Interface:
 
     @staticmethod
     def print_time(minutes, seconds, clock_window):
-        WINDOW_LINES = curses.LINES // 2
-        WINDOW_COLUMNS = curses.LINES // 2
 
         moment = pyfiglet.figlet_format("{}:{}".format(minutes, seconds))
 
         for index, line in enumerate(moment.split("\n")):
-            clock_window.addstr(WINDOW_LINES + index, WINDOW_COLUMNS - len(line) // 2, line)
+            clock_window.addstr(index + 2, 8, line)
             clock_window.refresh()
         time.sleep(1)
         clock_window.clear()

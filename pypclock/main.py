@@ -16,6 +16,8 @@ def main(screen):
 
     #rectangle(screen, curses.LINES // 3, 3 * curses.COLS // 8, 3 * curses.LINES // 4, 3 * curses.COLS // 5)
     #screen.refresh()
-    Clock.start(args.minutes[0], screen)
+    win = interface.Interface.get_clock_window()
+    win.clear()
+    Clock.start(args.minutes[0], win)
         
 curses.wrapper(main)
