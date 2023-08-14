@@ -22,7 +22,7 @@ class Interface:
         for index, line in enumerate(moment.split("\n")):
             clock_window.addstr(index + 2, BEGIN_COLUMN, line)
             clock_window.refresh()
-        time.sleep(1)
+        #time.sleep(1)
         clock_window.clear()
 
     @staticmethod
