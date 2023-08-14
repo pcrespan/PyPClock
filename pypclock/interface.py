@@ -16,10 +16,19 @@ class Interface:
     @staticmethod
     def print_time(minutes, seconds, clock_window):
 
-        moment = pyfiglet.figlet_format("{}:{}".format(minutes, seconds))
+        BEGIN_COLUMN = 7
+        moment = pyfiglet.figlet_format(Interface.format_time(minutes, seconds))
 
         for index, line in enumerate(moment.split("\n")):
-            clock_window.addstr(index + 2, 8, line)
+            clock_window.addstr(index + 2, BEGIN_COLUMN, line)
             clock_window.refresh()
         time.sleep(1)
         clock_window.clear()
+
+    @staticmethod
+    def format_time(minutes, seconds):
+        if minutes < 10:
+            minutes = str("0" + str(minutes))
+        if seconds < 10:
+            seconds = str("0" + str(seconds))
+        return str(minutes) + ":" + str(seconds)
