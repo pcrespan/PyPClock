@@ -12,7 +12,6 @@ class Clock:
 
             while i >= 0:
                 while j >= 0:
-                    clock_window.clear()
                     if first_minute:
                         j = 0
                         Interface.print_time(i, j, clock_window)
