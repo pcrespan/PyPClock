@@ -15,14 +15,19 @@ class Interface:
 
     @staticmethod
     def get_sessions_window():
+        HEIGHT = 2
+        WIDTH = 15
         curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
-        sessions_win = curses.newwin(2, 40)
+        sessions_win = curses.newwin(HEIGHT, WIDTH, curses.LINES // 4, curses.COLS // 2 - 8)
         sessions_win.bkgd(' ', curses.color_pair(1) | curses.A_BOLD | curses.A_REVERSE)
         return sessions_win
 
     @staticmethod
     def print_session(current_session, total_sessions, session_win):
-        session_win.addstr(1, 1, "Session {}/{}".format(current_session, total_sessions))
+        BEGIN_LINE = 1
+        BEGIN_COLUMN = 2
+        msg = "Session {}/{}".format(current_session, total_sessions)
+        session_win.addstr(BEGIN_LINE, BEGIN_COLUMN, msg)
         session_win.refresh()
 
 
