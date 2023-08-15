@@ -14,6 +14,19 @@ class Interface:
         return win
 
     @staticmethod
+    def get_sessions_window():
+        curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
+        sessions_win = curses.newwin(2, 40)
+        sessions_win.bkgd(' ', curses.color_pair(1) | curses.A_BOLD | curses.A_REVERSE)
+        return sessions_win
+
+    @staticmethod
+    def print_session(current_session, total_sessions, session_win):
+        session_win.addstr(1, 1, "Session {}/{}".format(current_session, total_sessions))
+        session_win.refresh()
+
+
+    @staticmethod
     def print_time(minutes, seconds, clock_window):
 
         BEGIN_COLUMN = 7
@@ -22,7 +35,7 @@ class Interface:
         for index, line in enumerate(moment.split("\n")):
             clock_window.addstr(index + 2, BEGIN_COLUMN, line)
             clock_window.refresh()
-        #time.sleep(1)
+        time.sleep(1)
         clock_window.clear()
 
     @staticmethod
