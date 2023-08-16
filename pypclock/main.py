@@ -32,6 +32,7 @@ def main(screen):
         interface.Interface.print_session(current_session, total_sessions, sessions_window)
         Clock.start(minutes, win)
         if current_session != total_sessions:
+            interface.Interface.print_break(sessions_window)
             Clock.break_time(break_duration, win)
         current_session += 1
 

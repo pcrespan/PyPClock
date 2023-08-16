@@ -50,3 +50,11 @@ class Interface:
         if seconds < 10:
             seconds = str("0" + str(seconds))
         return str(minutes) + ":" + str(seconds)
+
+    @staticmethod
+    def print_break(session_win):
+        BEGIN_LINE = 1
+        BEGIN_COLUMN = 5
+        session_win.clear()
+        session_win.addstr(BEGIN_LINE, BEGIN_COLUMN, "Break")
+        session_win.refresh()
