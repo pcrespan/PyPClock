@@ -1,4 +1,5 @@
 from interface import Interface
+from sound import play_alarm
 
 
 class Clock:
@@ -22,6 +23,8 @@ class Clock:
                     j -= 1
                 i -= 1
                 j = 59
+            play_alarm()
+
 
     @staticmethod
     def break_time(break_duration, clock_window):

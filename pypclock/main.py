@@ -1,9 +1,9 @@
+from time import sleep
 import helpers
 import curses
 import interface
 from clock import Clock
 from curses.textpad import rectangle
-import time
 
 
 args = helpers.arg_checker()
